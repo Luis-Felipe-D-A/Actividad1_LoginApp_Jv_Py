@@ -235,29 +235,29 @@ public FrmDashboard(Usuario usuario) {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-    // Imagen de usuario
+    
     ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Imagenes/userinfo.png"));
     Image imagen = iconoOriginal.getImage().getScaledInstance(lblLogo3.getWidth(), lblLogo3.getHeight(), Image.SCALE_SMOOTH);
     lblLogo3.setIcon(new ImageIcon(imagen));
 
-    // 👉 Aquí cargas los íconos de los botones
+    
 
-    // Facebook
+    
     ImageIcon iconFacebook = new ImageIcon(getClass().getResource("/Imagenes/face.png"));
     Image imgFacebook = iconFacebook.getImage().getScaledInstance(btnFacebook.getWidth(), btnFacebook.getHeight(), Image.SCALE_SMOOTH);
     btnFacebook.setIcon(new ImageIcon(imgFacebook));
 
-    // LinkedIn
+    
     ImageIcon iconLinkedIn = new ImageIcon(getClass().getResource("/Imagenes/linkedin.png"));
     Image imgLinkedIn = iconLinkedIn.getImage().getScaledInstance(btnLinkedIn.getWidth(), btnLinkedIn.getHeight(), Image.SCALE_SMOOTH);
     btnLinkedIn.setIcon(new ImageIcon(imgLinkedIn));
 
-    // Website / Unitecnar
+    
     ImageIcon iconWebsite = new ImageIcon(getClass().getResource("/Imagenes/website.png"));
     Image imgWebsite = iconWebsite.getImage().getScaledInstance(btnShield.getWidth(), btnShield.getHeight(), Image.SCALE_SMOOTH);
     btnShield.setIcon(new ImageIcon(imgWebsite));
 
-    // Logout / Salir
+    
     ImageIcon iconSalir = new ImageIcon(getClass().getResource("/Imagenes/logout.png"));
     Image imgSalir = iconSalir.getImage().getScaledInstance(btnSalir.getWidth(), btnSalir.getHeight(), Image.SCALE_SMOOTH);
     btnSalir.setIcon(new ImageIcon(imgSalir));
