@@ -21,10 +21,8 @@ import javax.swing.JOptionPane;
 
   private Usuario usuario;
     public FrmDashboard() {
-        initComponents();
-        
-
-    }
+        initComponents();    
+    } 
 
 
   
@@ -61,6 +59,10 @@ public FrmDashboard(Usuario usuario) {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblLogo3 = new javax.swing.JLabel();
+        btnFacebook = new javax.swing.JButton();
+        btnLinkedIn = new javax.swing.JButton();
+        btnShield = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenUsuario = new javax.swing.JMenuItem();
@@ -85,7 +87,7 @@ public FrmDashboard(Usuario usuario) {
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblNombre.setText("Nombre de usuario");
 
-        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEmail.setText("Email");
 
         lblRol.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -97,6 +99,30 @@ public FrmDashboard(Usuario usuario) {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
         jLabel2.setText("BIENVENIDO AL SISTEMA");
+
+        btnFacebook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacebookActionPerformed(evt);
+            }
+        });
+
+        btnLinkedIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLinkedInActionPerformed(evt);
+            }
+        });
+
+        btnShield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShieldActionPerformed(evt);
+            }
+        });
+
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Usuarios");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,18 +160,6 @@ public FrmDashboard(Usuario usuario) {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblNombre))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(lblRol))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lblEmail)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -153,27 +167,52 @@ public FrmDashboard(Usuario usuario) {
                         .addComponent(lblLogo3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblRol)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))))
+                        .addGap(75, 75, 75))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombre)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEmail)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnFacebook)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLinkedIn)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnShield)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSalir)))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogo3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblRol)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShield, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,13 +234,66 @@ public FrmDashboard(Usuario usuario) {
     }//GEN-LAST:event_jMenUsuarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
-ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Imagenes/userinfo.png"));
-Image imagen = iconoOriginal.getImage().getScaledInstance(lblLogo3.getWidth(), lblLogo3.getHeight(), Image.SCALE_SMOOTH);
-lblLogo3.setIcon(new ImageIcon(imagen));
 
+    // Imagen de usuario
+    ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Imagenes/userinfo.png"));
+    Image imagen = iconoOriginal.getImage().getScaledInstance(lblLogo3.getWidth(), lblLogo3.getHeight(), Image.SCALE_SMOOTH);
+    lblLogo3.setIcon(new ImageIcon(imagen));
+
+    // 👉 Aquí cargas los íconos de los botones
+
+    // Facebook
+    ImageIcon iconFacebook = new ImageIcon(getClass().getResource("/Imagenes/face.png"));
+    Image imgFacebook = iconFacebook.getImage().getScaledInstance(btnFacebook.getWidth(), btnFacebook.getHeight(), Image.SCALE_SMOOTH);
+    btnFacebook.setIcon(new ImageIcon(imgFacebook));
+
+    // LinkedIn
+    ImageIcon iconLinkedIn = new ImageIcon(getClass().getResource("/Imagenes/linkedin.png"));
+    Image imgLinkedIn = iconLinkedIn.getImage().getScaledInstance(btnLinkedIn.getWidth(), btnLinkedIn.getHeight(), Image.SCALE_SMOOTH);
+    btnLinkedIn.setIcon(new ImageIcon(imgLinkedIn));
+
+    // Website / Unitecnar
+    ImageIcon iconWebsite = new ImageIcon(getClass().getResource("/Imagenes/website.png"));
+    Image imgWebsite = iconWebsite.getImage().getScaledInstance(btnShield.getWidth(), btnShield.getHeight(), Image.SCALE_SMOOTH);
+    btnShield.setIcon(new ImageIcon(imgWebsite));
+
+    // Logout / Salir
+    ImageIcon iconSalir = new ImageIcon(getClass().getResource("/Imagenes/logout.png"));
+    Image imgSalir = iconSalir.getImage().getScaledInstance(btnSalir.getWidth(), btnSalir.getHeight(), Image.SCALE_SMOOTH);
+    btnSalir.setIcon(new ImageIcon(imgSalir));
 
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnLinkedInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLinkedInActionPerformed
+         try {
+        java.awt.Desktop.getDesktop().browse(new java.net.URI("https://www.linkedin.com/"));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    }//GEN-LAST:event_btnLinkedInActionPerformed
+
+    private void btnFacebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacebookActionPerformed
+           try {
+        java.awt.Desktop.getDesktop().browse(new java.net.URI("https://www.facebook.com/"));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    }//GEN-LAST:event_btnFacebookActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+           System.exit(0); 
+
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShieldActionPerformed
+          try {
+        java.awt.Desktop.getDesktop().browse(new java.net.URI("https://www.unitecnar.edu.co/"));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_btnShieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,6 +321,10 @@ lblLogo3.setIcon(new ImageIcon(imagen));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFacebook;
+    private javax.swing.JButton btnLinkedIn;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnShield;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenUsuario;

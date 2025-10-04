@@ -6,12 +6,10 @@ package Clases;
 
 /**
  *
- * @author 
+ * @author
  */
-
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,10 +24,9 @@ public class Usuarios {
         con = new Conector();
     }
 
-   
     public void registrarUsuarios(String nombre, String apellido, String email, String username, String clave, String rol) {
         String sql = "INSERT INTO usuarios (nombre, apellido, email, username, clave, rol) VALUES (?, ?, ?, ?, ?, ?)";
-       try(PreparedStatement ps = con.prepararStatement(sql)){
+        try (PreparedStatement ps = con.prepararStatement(sql)) {
             ps.setString(1, nombre);
             ps.setString(2, apellido);
             ps.setString(3, email);
@@ -44,7 +41,6 @@ public class Usuarios {
         }
     }
 
-    
     public boolean validarUsuario(String username, String clave) {
         String sql = "SELECT * FROM usuarios WHERE username = ? AND clave = ?";
         try (PreparedStatement ps = con.prepararStatement(sql)) {
@@ -62,20 +58,19 @@ public class Usuarios {
         return false;
     }
 
-    
-    public Usuario obtenerUsuarioPorUsername(String username) {
+    public Usuario obtenerPorUsername(String username) {
         String sql = "SELECT * FROM usuarios WHERE username = ?";
         try (PreparedStatement ps = con.prepararStatement(sql)) {
             ps.setString(1, username);
             ResultSet rs = con.ejecutarConsulta(ps);
             if (rs.next()) {
                 return new Usuario(
-                    rs.getString("nombre"),
-                    rs.getString("apellido"),
-                    rs.getString("email"),
-                    rs.getString("username"),
-                    rs.getString("clave"),
-                    rs.getString("rol")
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("email"),
+                        rs.getString("username"),
+                        rs.getString("clave"),
+                        rs.getString("rol")
                 );
             }
         } catch (SQLException e) {
@@ -86,67 +81,65 @@ public class Usuarios {
         return null;
     }
 
+    public DefaultTableModel listarUsuarios() {
+        String[] columnas = {"Nombre", "Apellido", "Email", "Username", "Rol"};
+        DefaultTableModel modelo = new DefaultTableModel(null, columnas);
 
+        String sql = "SELECT nombre, apellido, email, username, rol FROM usuarios";
 
-public DefaultTableModel listarUsuarios() {
-    String[] columnas = {"Nombre", "Apellido", "Email", "Username", "Rol"};
-    DefaultTableModel modelo = new DefaultTableModel(null, columnas);
+        try (PreparedStatement ps = con.prepararStatement(sql); ResultSet rs = con.ejecutarConsulta(ps)) {
 
-    String sql = "SELECT nombre, apellido, email, username, rol FROM usuarios";
+            while (rs.next()) {
+                Object[] fila = new Object[5];
+                fila[0] = rs.getString("nombre");
+                fila[1] = rs.getString("apellido");
+                fila[2] = rs.getString("email");
+                fila[3] = rs.getString("username");
+                fila[4] = rs.getString("rol");
+                modelo.addRow(fila);
+            }
 
-    try (PreparedStatement ps = con.prepararStatement(sql);
-         ResultSet rs = con.ejecutarConsulta(ps)) {
-
-        while (rs.next()) {
-            Object[] fila = new Object[5];
-            fila[0] = rs.getString("nombre");
-            fila[1] = rs.getString("apellido");
-            fila[2] = rs.getString("email");
-            fila[3] = rs.getString("username");
-            fila[4] = rs.getString("rol");
-            modelo.addRow(fila);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "❌ Error listando usuarios: " + e.getMessage());
+        } finally {
+            con.desconectar();
         }
 
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "❌ Error listando usuarios: " + e.getMessage());
-    } finally {
-        con.desconectar();
+        return modelo;
     }
 
-    return modelo;
-}
-
-public void eliminarUsuario(String username) {
-    String sql = "DELETE FROM usuarios WHERE username=?";
-    try (PreparedStatement ps = con.prepararStatement(sql)) {
-        ps.setString(1, username);
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null, "✅ Usuario eliminado");
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "❌ Error eliminando usuario: " + e.getMessage());
-    }
-
-}
-public boolean actualizarUsuario(String nombre, String apellido, String email, String username, String clave, String rol) {
-    String sql = "UPDATE usuarios SET (nombre, apellido, email, username, clave, rol) VALUES (?, ?, ?, ?, ?, ?) WHERE username=?"; 
-    try (PreparedStatement ps = con.prepararStatement(sql)) {
-        ps.setString(1, nombre);
-        ps.setString(2, apellido);
-        ps.setString(3, email);
-        ps.setString(4, clave);
-        ps.setString(5, rol);
-        ps.setString(6, username);
-
-        int filasActualizadas = ps.executeUpdate();
-        if (filasActualizadas > 0) {
-            JOptionPane.showMessageDialog(null, "✅ Usuario actualizado con éxito");
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(null, "❌ No se encontró el usuario para actualizar");
+    public void eliminarUsuario(String username) {
+        String sql = "DELETE FROM usuarios WHERE username=?";
+        try (PreparedStatement ps = con.prepararStatement(sql)) {
+            ps.setString(1, username);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "✅ Usuario eliminado");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "❌ Error eliminando usuario: " + e.getMessage());
         }
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "❌ Error actualizando usuario: " + e.getMessage());
+
     }
-    return false;
-}
+
+    public boolean actualizarUsuario(String nombre, String apellido, String email, String username, String clave, String rol) {
+        String sql = "UPDATE usuarios SET (nombre, apellido, email, username, clave, rol) VALUES (?, ?, ?, ?, ?, ?) WHERE username=?";
+        try (PreparedStatement ps = con.prepararStatement(sql)) {
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ps.setString(3, email);
+            ps.setString(4, clave);
+            ps.setString(5, rol);
+            ps.setString(6, username);
+
+            int filasActualizadas = ps.executeUpdate();
+            if (filasActualizadas > 0) {
+                JOptionPane.showMessageDialog(null, "✅ Usuario actualizado con éxito");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "❌ No se encontró el usuario para actualizar");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "❌ Error actualizando usuario: " + e.getMessage());
+        }
+        return false;
+    }
 }

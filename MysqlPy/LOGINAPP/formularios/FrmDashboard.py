@@ -81,7 +81,7 @@ class Dashboard:
     
     def main_usuarios(self):
         if self.rol != "Admin":
-            messagebox.showwarning("Acceso denegado", "No tienes permisos para acceder a Administración de Usuarios.")
+            messagebox.showwarning("Acceso no permitido", "No tienes permisos para acceder a Administración de Usuarios.")
             return
         self.limpiar_panel(self.frame_dynamic)
         FrmUsuarios(self.frame_dynamic, self.nombre_completo, self.email, self.rol)
@@ -89,7 +89,7 @@ class Dashboard:
     
     def main_clientes(self):
         if self.rol != "Admin":
-            messagebox.showwarning("Acceso denegado", "No tienes permisos para acceder a Administración de Clientes.")
+            messagebox.showwarning("Acceso no permitido", "No tienes permisos para acceder a Administración de Clientes.")
             return
         print("Abrir módulo de clientes")
        

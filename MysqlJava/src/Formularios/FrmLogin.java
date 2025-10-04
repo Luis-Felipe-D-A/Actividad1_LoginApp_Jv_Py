@@ -23,7 +23,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     public FrmLogin() {
         initComponents();
-
+          
     
 ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Imagenes/login.png"));
 Image imagen = iconoOriginal.getImage().getScaledInstance(lblLogo2.getWidth(), lblLogo2.getHeight(), Image.SCALE_SMOOTH);
@@ -149,7 +149,7 @@ lblLogo2.setIcon(new ImageIcon(imagen));
     String clave = new String(txtClave.getPassword());
 
     if (usuarios.validarUsuario(username, clave)) {
-        Usuario usuario = usuarios.obtenerUsuarioPorUsername(username);
+        Usuario usuario = usuarios.obtenerPorUsername(username);
         if (usuario != null) {
             JOptionPane.showMessageDialog(this, "Bienvenido " + usuario.getNombre() + " " + usuario.getApellido());
 

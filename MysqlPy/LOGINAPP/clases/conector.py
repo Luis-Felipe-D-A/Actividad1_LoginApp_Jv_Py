@@ -5,7 +5,7 @@ class Conector:
         self.host = "localhost"
         self.user = "root"
         self.password = ""
-        self.database = "tecnar_app_py"
+        self.database = "tecnar_app_py2"
 
     def connect(self):
         try:

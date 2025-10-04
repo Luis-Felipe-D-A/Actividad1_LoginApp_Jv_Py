@@ -7,8 +7,8 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE DATABASE IF NOT EXISTS `tecnar_app_java` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `tecnar_app_java`;
+CREATE DATABASE IF NOT EXISTS `tecnar_app_java1` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `tecnar_app_java1`;
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -19,15 +19,14 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `clave` varchar(14) NOT NULL,
   `rol` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `usuarios` (`ID`, `nombre`, `apellido`, `email`, `username`, `clave`, `rol`) VALUES
-	(5, 'luis', 'Fe', 'LLLL@gmail', 'LLL', '123', 'Admin'),
-	(9, 'Fr', 'Co', 'FRc@GMAIL', 'FFF', '123', 'Usuario'),
-	(10, 'jose', 'herd', 'JS@GMAIL', 'JSH', '123456W', 'Vendedor');
+	(1, 'Luis', 'Diaz', 'LF@gmai.com', 'LUI', '123', 'Admin'),
+	(2, 'Francisco', 'Ramos', 'FRJ@gmai.com', 'FJ', '1234', 'Usuario');
 
-CREATE DATABASE IF NOT EXISTS `tecnar_app_py` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `tecnar_app_py`;
+CREATE DATABASE IF NOT EXISTS `tecnar_app_py2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `tecnar_app_py2`;
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -38,11 +37,11 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `clave` varchar(14) NOT NULL,
   `rol` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `usuarios` (`ID`, `nombre`, `apellido`, `email`, `username`, `clave`, `rol`) VALUES
-	(1, 'Luis', 'Fe', 'FL@gmail.com', 'LF', '123', 'Admin'),
-	(10, 'Fr', 'CC', 'FC@gmail.com', 'FC', '1234', 'Usuario');
+	(1, 'Luis', 'Diaz', 'LF@gamil.com', 'LLL', '123', 'Admin'),
+	(2, 'Francisco', 'Ramos', 'FRJ@gmai.com', 'FJ', '1234', 'Usuario');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
