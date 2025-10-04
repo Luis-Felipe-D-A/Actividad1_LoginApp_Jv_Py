@@ -35,9 +35,9 @@ public class Usuarios {
             ps.setString(6, rol);
 
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "✅ Usuario agregado con éxito");
+            JOptionPane.showMessageDialog(null, " Usuario agregado con éxito");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "❌ Error al insertar usuario: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, " Error al insertar usuario: " + e.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ public class Usuarios {
                 return true;
             }
         } catch (SQLException e) {
-            System.out.println("❌ Error validando usuario: " + e.getMessage());
+            System.out.println(" Error validando usuario: " + e.getMessage());
         } finally {
             con.desconectar();
         }
@@ -100,7 +100,7 @@ public class Usuarios {
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "❌ Error listando usuarios: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, " Error listando usuarios: " + e.getMessage());
         } finally {
             con.desconectar();
         }
@@ -113,9 +113,9 @@ public class Usuarios {
         try (PreparedStatement ps = con.prepararStatement(sql)) {
             ps.setString(1, username);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "✅ Usuario eliminado");
+            JOptionPane.showMessageDialog(null, " Usuario eliminado");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "❌ Error eliminando usuario: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, " Error eliminando usuario: " + e.getMessage());
         }
 
     }
@@ -132,13 +132,13 @@ public class Usuarios {
 
             int filasActualizadas = ps.executeUpdate();
             if (filasActualizadas > 0) {
-                JOptionPane.showMessageDialog(null, "✅ Usuario actualizado con éxito");
+                JOptionPane.showMessageDialog(null, " Usuario actualizado con éxito");
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null, "❌ No se encontró el usuario para actualizar");
+                JOptionPane.showMessageDialog(null, " No se encontró el usuario para actualizar");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "❌ Error actualizando usuario: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, " Error actualizando usuario: " + e.getMessage());
         }
         return false;
     }

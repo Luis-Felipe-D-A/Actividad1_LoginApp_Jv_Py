@@ -27,10 +27,10 @@ public class Conector {
         try {
             if (conexion == null || conexion.isClosed()) {
                 conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-                System.out.println("✅ Conexion exitosa");
+                System.out.println("Conexion exitosa");
             }
         } catch (SQLException e) {
-            System.out.println("❌ Error de conexion: " + e.getMessage());
+            System.out.println(" Error de conexion: " + e.getMessage());
         }
         return conexion;
     }
@@ -55,10 +55,10 @@ public class Conector {
         try {
             if (conexion != null && !conexion.isClosed()) {
                 conexion.close();
-                System.out.println("🔒 Conexion cerrada");
+                System.out.println(" Conexion cerrada");
             }
         } catch (SQLException e) {
-            System.out.println("⚠️ Error al desconectarse: " + e.getMessage());
+            System.out.println("️ Error al desconectarse: " + e.getMessage());
         }
     }
 }

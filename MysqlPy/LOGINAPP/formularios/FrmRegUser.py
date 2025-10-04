@@ -89,7 +89,7 @@ class FrmUsuarios:
         selected = self.tablausuarios.selection()
         if selected:
             item = self.tablausuarios.item(selected[0])
-            self.usuario_seleccionado_id = item["text"]  # El ID
+            self.usuario_seleccionado_id = item["text"]  
             nombre, apellido, username, email, rol = item["values"]
 
             self.cnombre.delete(0, tk.END)
